@@ -8,6 +8,9 @@ void setup() {
   }
 }
 
+
+int u=10;
+
 class Star{
     float x;
     float y;

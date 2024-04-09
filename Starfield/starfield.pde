@@ -1,8 +1,8 @@
-Star[] star = new Star[500];   
+Star[] star = new Star[700];   
 
 void setup() {
     
-  size(600, 600);
+  size(800, 800);
   for(int i=0;i<star.length;i++){
     star[i] = new Star();
   }
@@ -16,11 +16,15 @@ class Star{
     float y;
     float z;
 
+    float pz;
+
 
     Star(){
         this.x=random(-width,width);
         this.y=random(-height,height);
         z=random(width);
+
+        pz=z;
     }
 
     void show(){
@@ -33,15 +37,25 @@ class Star{
         float sz=map(z ,0, width, 8, 0 );
 
         circle(sx, sy,sz);
+       
+
+        float px = map(x / pz, 0, 1, 0, width/2);
+        float py = map(y / pz, 0, 1, 0, height/2);
+
+        pz = z;
+
+        stroke(255);
+        line(px, py, sx, sy);
     }
 
     void update(){
 
-        z=z-5;
+        z=z-10;
         if(z<1){
             z=width;
             x=random(-width,width);
             y=random(-height,height);
+            pz=z;
         }
         
     }

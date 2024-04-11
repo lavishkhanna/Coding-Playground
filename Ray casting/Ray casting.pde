@@ -196,6 +196,6 @@ void draw() {
           line(ray.x1, ray.y1, pnt.x, pnt.y);
       }
   }
-
+  int x=10;
 
 }
